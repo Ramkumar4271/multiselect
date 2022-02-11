@@ -1,0 +1,43 @@
+.container {
+    max-width: 80rem;
+    padding: 1rem;
+    margin: auto;
+    margin-top: 4rem;
+    @media only screen and (max-width: 992px) {
+        margin-top: 1rem;
+    }
+    .row {
+        .col-1 {
+            width: 40%;
+        }
+        .col-2 {
+            width: 20%;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 1rem;
+            mat-icon {
+                color: #808080;
+            }
+        }
+        .col-3 {
+            width: 40%;
+        }
+        .column {
+            display: inline-block;  
+            @media only screen and (max-width: 992px) {
+                display: block;
+                width: 100%;
+            } 
+            mat-label {
+                font-size: smaller;
+            }    
+            .chip-list {
+                width: 100%;
+                margin-top: 0.5rem;
+                ::ng-deep .mat-form-field-flex{
+                    padding-top: 0;
+                }
+            }     
+        }        
+    }
+}

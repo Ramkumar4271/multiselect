@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+      <div class="column col-1">
+        <mat-label>Available :</mat-label>
+        <button mat-button color="primary" (click)="selectAll()">Select All</button>
+        <mat-form-field class="chip-list" appearance="fill">
+          <mat-chip-list #chipList aria-label="Left Multi Select" multiple [formControl]="leftFormControl">
+            <mat-chip
+                *ngFor="let select of leftMultiSelect"
+                [selected]="select"
+                [value]="select"
+                (removed)="deleteSelectFromLeft(select)"
+                (click)="moveSelectToRight(select)">
+              {{select}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input
+              placeholder="New Select..."
+              [matChipInputFor]="chipList"
+              (matChipInputTokenEnd)="addLeftSelectFromInput($event)">
+          </mat-chip-list>
+        </mat-form-field>
+      </div>
+      <div class="column col-2">
+        <mat-icon aria-label="sync_alt icon">sync_alt</mat-icon>
+      </div>
+      <div class="column col-3">
+        <mat-label>Selected :</mat-label>
+        <button mat-button color="primary" (click)="clearAll()">Clear All</button>
+        <mat-form-field class="chip-list" appearance="fill">
+          <mat-chip-list #chipList aria-label="Right Multi Select" multiple [formControl]="rightFormControl">
+            <mat-chip
+                *ngFor="let select of rightMultiSelect"
+                [selected]="select"
+                [value]="select"
+                (click)="moveSelectToLeft(select)">
+              {{select}}
+            </mat-chip>
+          </mat-chip-list>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
